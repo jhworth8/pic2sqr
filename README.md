@@ -12,7 +12,6 @@ Only prerequisite is to 'pip install pillow'.
  |_|  |___\____|   |_____|   |____/ \__\_\_| \_\
                                                 
 
-
 This program takes an image file or path and creates a square image with the original image in the center of the square.
 
 The user can enter "-jpg" after the input file to output a jpg image with a white background.
