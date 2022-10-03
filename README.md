@@ -4,6 +4,8 @@ This is helpful when you need a square image for img2img programs like Stable Di
 Now you can also resize the image to your desired px size.
 Use it in terminal.
 
+
+
 Only prerequisite is to 'pip install pillow'.
 
 This program takes an image file or path and creates a square image with the original image in the center of the square.
@@ -15,6 +17,7 @@ The user can enter "-jpg" after the input file to output a jpg image with a whit
 If there is nothing after the input file, then the output will be a png image with a transparent background.
 
 The CLI will be like this:
+
 
 
 input: python pic2sqr.py image.jpg
