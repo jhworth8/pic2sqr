@@ -35,3 +35,7 @@ output: image-sqr-500.png
 input: python pic2sqr.py resize image.png 500px -jpg
 
 output: image-sqr-500.jpg
+
+
+<img src='https://i.ibb.co/nQT0dv6/pic2sqr1.png'/>
+<img src='https://i.ibb.co/LNTCx0g/pic2sqr2.png'/>
