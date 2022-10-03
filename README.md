@@ -1,4 +1,8 @@
 # pic2sqr
+
+Now you don't have to open photoshop over and over!
+
+
 This program takes an image file and creates a square image with the original image in the center of the square. 
 This is helpful when you need a square image for img2img programs like Stable Diffusion.
 Now you can also resize the image to your desired px size.
