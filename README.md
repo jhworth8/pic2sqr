@@ -14,10 +14,13 @@ If there is nothing after the input file, then the output will be a png image wi
 The CLI will be like this:
 
 input: python pic2sqr.py image.jpg
+
 output: image-sqr.png
 
 input: python pic2sqr.py path-to-image.png
+
 output: image-sqr.png
 
 input: python pic2sqr.py image.jpg -jpg
+
 output: image-sqr.jpg
