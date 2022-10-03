@@ -10,16 +10,19 @@ def main():
         print(colored(' |  __/| | |__|_____/ __/_____|__) | |_| |  _ < ', 'cyan'))
         print(colored(' |_|  |___\\____|   |_____|   |____/ \\__\\_\\_| \\_\\', 'cyan'))
         print(colored('                                                ', 'cyan'))
-        print(colored('\nThis program takes an image file or path and creates a square image with the original image in the center of the square.\n', 'green'))
+        print(colored('\nThis program takes an image file or path and creates a square image with the original image in the center of the square.\n', 'green')) 
+        print(colored('The user can enter "resize" after the input file to resize the output image.\n', 'green'))
         print(colored('The user can enter "-jpg" after the input file to output a jpg image with a white background.\n', 'green'))
         print(colored('If there is nothing after the input file, then the output will be a png image with a transparent background.\n', 'green'))
         print(colored('The CLI will be like this:\n', 'cyan'))
-        print(colored('input: python pic2sqr.py image.jpg', 'white'))
+        print(colored('input: python pic2sqr.py image.jpg', 'white')) 
         print(colored('output: image-sqr.png\n', 'green'))
-        print(colored('input: python pic2sqr.py path-to-image.png', 'white'))
-        print(colored('output: image-sqr.png\n', 'green'))
-        print(colored('input: python pic2sqr.py image.jpg -jpg', 'white'))
+        print(colored('input: python pic2sqr.py image.png -jpg', 'white'))
         print(colored('output: image-sqr.jpg\n', 'green'))
+        print(colored('input: python pic2sqr.py resize image.jpg 500px', 'white'))
+        print(colored('output: image-sqr-500.png\n', 'green'))
+        print(colored('input: python pic2sqr.py resize image.png 500px -jpg', 'white'))
+        print(colored('output: image-sqr-500.jpg\n', 'green'))
     elif len(sys.argv) == 2:
         image = Image.open(sys.argv[1])
         width, height = image.size
@@ -31,6 +34,32 @@ def main():
             new_image = Image.new('RGBA', (height, height), (0, 0, 0, 0))
             new_image.paste(image, (int((height - width) / 2), 0))
             new_image.save(sys.argv[1].split('.')[0] + '-sqr.png')
+    elif len(sys.argv) == 4 and sys.argv[1] == 'resize':
+        image = Image.open(sys.argv[2])
+        width, height = image.size
+        if width > height:
+            new_image = Image.new('RGBA', (width, width), (0, 0, 0, 0))
+            new_image.paste(image, (0, int((width - height) / 2)))
+            new_image.thumbnail((int(sys.argv[3].split('px')[0]), int(sys.argv[3].split('px')[0])))
+            new_image.save(sys.argv[2].split('.')[0] + '-sqr-' + sys.argv[3] + '.png')
+        else:
+            new_image = Image.new('RGBA', (height, height), (0, 0, 0, 0))
+            new_image.paste(image, (int((height - width) / 2), 0))
+            new_image.thumbnail((int(sys.argv[3].split('px')[0]), int(sys.argv[3].split('px')[0])))
+            new_image.save(sys.argv[2].split('.')[0] + '-sqr-' + sys.argv[3] + '.png')
+    elif len(sys.argv) == 5 and sys.argv[1] == 'resize' and sys.argv[4] == '-jpg':
+        image = Image.open(sys.argv[2])
+        width, height = image.size
+        if width > height:
+            new_image = Image.new('RGB', (width, width), (255, 255, 255))
+            new_image.paste(image, (0, int((width - height) / 2)))
+            new_image.thumbnail((int(sys.argv[3].split('px')[0]), int(sys.argv[3].split('px')[0])))
+            new_image.save(sys.argv[2].split('.')[0] + '-sqr-' + sys.argv[3] + '.jpg')
+        else:
+            new_image = Image.new('RGB', (height, height), (255, 255, 255))
+            new_image.paste(image, (int((height - width) / 2), 0))
+            new_image.thumbnail((int(sys.argv[3].split('px')[0]), int(sys.argv[3].split('px')[0])))
+            new_image.save(sys.argv[2].split('.')[0] + '-sqr-' + sys.argv[3] + '.jpg')
     elif len(sys.argv) == 3:
         image = Image.open(sys.argv[1])
         width, height = image.size
