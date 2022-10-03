@@ -5,13 +5,6 @@ Use it in terminal.
 
 Only prerequisite is to 'pip install pillow'.
 
-  ____ ___ ____     ____      ____   ___  ____  
- |  _ \_ _/ ___|   |___ \    / ___| / _ \|  _ \ 
- | |_) | | |   _____ __) |___\___ \| | | | |_) |
- |  __/| | |__|_____/ __/_____|__) | |_| |  _ < 
- |_|  |___\____|   |_____|   |____/ \__\_\_| \_\
-                                                
-
 This program takes an image file or path and creates a square image with the original image in the center of the square.
 
 The user can enter "-jpg" after the input file to output a jpg image with a white background.
